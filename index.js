@@ -1,7 +1,7 @@
 /* jshint node: true */
 'use strict';
 
-var Promise = require('ember-cli/lib/ext/promise');
+var RSVP = require('rsvp');
 var minimatch = require('minimatch');
 var DeployPluginBase = require('ember-cli-deploy-plugin');
 var CloudFiles = require('./lib/cloudfiles');
@@ -87,7 +87,7 @@ module.exports = {
         if (error) {
           this.log(error.stack, { color: 'red' });
         }
-        return Promise.reject(error);
+        return RSVP.Promise.reject(error);
       }
     });
 
